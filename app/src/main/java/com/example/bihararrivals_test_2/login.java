@@ -7,15 +7,51 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class login extends AppCompatActivity {
-    private Button register_button;
+
+    //button type variable
+    Button create_button;
+    Button login_button;
+    TextInputLayout username_var,password_var;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        register_button=(Button) findViewById(R.id.register_button);
-        register_button.setOnClickListener(new View.OnClickListener() {
+
+        create_button=(Button) findViewById(R.id.create_account_button_input);
+        login_button=findViewById(R.id.login_button_input);
+
+        username_var=findViewById(R.id.email_input);
+        password_var=findViewById(R.id.password_input);
+
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String username=username_var.getEditText().getText().toString();
+                String password=password_var.getEditText().getText().toString();
+
+                if(!username.isEmpty()){
+                    username_var.setError(null);
+                    username_var.setErrorEnabled(false);
+                    if(!password.isEmpty()){
+                        password_var.setError(null);
+                        password_var.setErrorEnabled(false);
+                    }
+                    else {
+                        password_var.setError("Please enter correct Password.");
+                    }
+
+                }else {
+                    username_var.setError("Plase enter correct user name.");
+                }
+            }
+        });
+
+
+        create_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openRegistr();
@@ -27,5 +63,7 @@ public class login extends AppCompatActivity {
         Intent intent=new Intent(this,create_account.class);
         startActivity(intent);
     }
+
+
 
 }

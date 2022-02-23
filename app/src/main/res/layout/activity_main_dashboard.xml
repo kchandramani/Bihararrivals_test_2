@@ -18,15 +18,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:src="@drawable/back_button_arrow">
+            android:src="@drawable/show_logo">
 
         </ImageView>
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/home_dashboard_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Welcome" />
 
 
     </LinearLayout>

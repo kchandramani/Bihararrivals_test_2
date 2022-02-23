@@ -3,10 +3,12 @@ package com.example.bihararrivals_test_2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 
@@ -17,9 +19,11 @@ import java.util.Calendar;
 
 public class create_account extends AppCompatActivity {
 
+    private Button go_back_login;
     TextInputEditText etDate;
-    TextInputLayout tvDate;
+    TextInputLayout tvDate,name_var,email_var,ccode_var,number_var,password_var;
     DatePickerDialog.OnDateSetListener setListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,18 @@ public class create_account extends AppCompatActivity {
 
         tvDate=findViewById(R.id.tv_date);
        etDate=findViewById(R.id.et_date);
+    //code for going back to login page from registration page
+        go_back_login=(Button) findViewById(R.id.go_back_login); //only this
+
+        //variables for taking data from user and sending to database
+
+        name_var=findViewById(R.id.name_input);
+        email_var=findViewById(R.id.email_input);
+        ccode_var=findViewById(R.id.country_code_input);
+        number_var=findViewById(R.id.number_input);
+        password_var=findViewById(R.id.password_input);
+        //Gender variable will be added shortly
+
 
      Calendar calendar=Calendar.getInstance();
       final int year=calendar.get(Calendar.YEAR);
@@ -42,6 +58,19 @@ public class create_account extends AppCompatActivity {
               datePickerDialog.show();
           }
       });
+
+        //code for going back to login page from registration page
+
+        go_back_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLoginAG();
+            }
+        });
+
+
+
+
 
       setListener=new DatePickerDialog.OnDateSetListener() {
           @Override
@@ -85,4 +114,30 @@ public class create_account extends AppCompatActivity {
             }
         });  */
     }
+
+ /*   protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_create_account);
+
+        go_back_login=(Button) findViewById(R.id.go_back_login);
+        go_back_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openLogin2();
+            }
+        });
+
+    }
+    public void openLogin2(){
+        Intent intent=new Intent(this,login.class);
+        startActivity(intent);
+    }  */
+
+    public void openLoginAG() {
+        Intent intent=new Intent(this,login.class);
+        startActivity(intent);
+    } //Till here
+
+
+
 }

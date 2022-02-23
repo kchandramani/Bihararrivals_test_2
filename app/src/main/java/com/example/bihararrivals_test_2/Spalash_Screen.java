@@ -22,7 +22,7 @@ public class Spalash_Screen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.spalashscreen);
+        setContentView(R.layout.spalash_screen);
 
         imageView=findViewById(R.id.sslogo);
         textView1=findViewById(R.id.logoname);
@@ -36,7 +36,7 @@ public class Spalash_Screen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(Spalash_Screen.this,login.class);
+                Intent intent=new Intent(Spalash_Screen.this,welcome_screen.class);
                 startActivity(intent);
                 finish();
             }
