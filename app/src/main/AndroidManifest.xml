@@ -17,12 +17,25 @@
             android:exported="false" />
         <activity
             android:name=".create_account"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".login"
-            android:exported="false" />
+            android:exported="true">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity
-            android:name=".Spalash_Screen"
+            android:name=".splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

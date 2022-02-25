@@ -45,7 +45,7 @@ public class login extends AppCompatActivity {
                     }
 
                 }else {
-                    username_var.setError("Plase enter correct user name.");
+                    username_var.setError("Please enter correct user name.");
                 }
             }
         });
