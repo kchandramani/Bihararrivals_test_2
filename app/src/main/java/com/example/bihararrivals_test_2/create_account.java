@@ -10,9 +10,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
@@ -20,8 +24,10 @@ public class create_account extends AppCompatActivity {
 
     private Button go_back_login;
     TextInputEditText etDate;
-    TextInputLayout tvDate,name_var,email_var,ccode_var,number_var,password_var;
+    TextInputLayout tvDate,name_var,email_var,number_var,password_var;
     DatePickerDialog.OnDateSetListener setListener;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference reference;
 
 
     @Override
@@ -95,6 +101,8 @@ public class create_account extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+    }
+
 
 
    /*     dob_input_text.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +120,6 @@ public class create_account extends AppCompatActivity {
                 g.show();
             }
         });  */
-    }
 
  /*   protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,40 +147,63 @@ public class create_account extends AppCompatActivity {
 
     public void registerButtonClick(View view) {
 
-        String name=name_var.getEditText().getText().toString();
-        String email=email_var.getEditText().getText().toString();
-        //String ccode=ccode_var.getEditText().getText().toString();
-        String number=number_var.getEditText().getText().toString();
-        String password=password_var.getEditText().getText().toString();
+        String name_r=name_var.getEditText().getText().toString();
+        String email_r=email_var.getEditText().getText().toString();
+        String number_r=number_var.getEditText().getText().toString();
+        String password_r=password_var.getEditText().getText().toString();
 
-        if (!name.isEmpty()){
+        if (!name_r.isEmpty()) {
             name_var.setError(null);
             name_var.setErrorEnabled(false);
-            if (!email.isEmpty()){
+            if (!email_r.isEmpty()) {
                 email_var.setError(null);
                 email_var.setErrorEnabled(false);
-                    if (!number.isEmpty()){
-                        number_var.setError(null);
-                        number_var.setErrorEnabled(false);
-                        if (!password.isEmpty()){
-                            password_var.setError(null);
-                            password_var.setErrorEnabled(false);
-                            if (email.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")){
+                if (!number_r.isEmpty()) {
+                    number_var.setError(null);
+                    number_var.setErrorEnabled(false);
+                    if (!password_r.isEmpty()) {
+                        password_var.setError(null);
+                        password_var.setErrorEnabled(false);
+                        if (email_r.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")) {
 
-                            }
 
-                        }else {
+                            // Database connection
+
+
+                            firebaseDatabase=FirebaseDatabase.getInstance();
+                            reference=firebaseDatabase.getReference("datauser");
+
+                            String name_db=name_var.getEditText().getText().toString();
+                            String email_db=email_var.getEditText().getText().toString();
+
+                            String number_db=number_var.getEditText().getText().toString();
+                            String password_db=password_var.getEditText().getText().toString();
+
+
+                            storingdata storingdatas=new storingdata(name_db,email_db,number_db,password_db);
+
+                            reference.child(email_db).setValue(storingdatas);
+                            Toast.makeText(getApplicationContext(),"Register Successfully",Toast.LENGTH_SHORT).show();
+
+                            Intent intent=new Intent(getApplicationContext(),main_dashboard.class);
+                            startActivity(intent);
+                            finish();
+
+
+
+                        } else {
                             password_var.setError("Please enter the Password");
                         }
-                    }else {
+                    } else {
                         number_var.setError("Please enter the Number");
                     }
 
-            }else {
-                email_var.setError("Please Enter Your Email.");
+                } else {
+                    email_var.setError("Please Enter Your Email.");
+                }
+            } else {
+                name_var.setError("Please Enter Your Full Name");
             }
-        }else {
-            name_var.setError("Please Enter Your Full Name");
         }
 
 

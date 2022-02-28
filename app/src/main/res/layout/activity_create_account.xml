@@ -104,7 +104,7 @@
 
 
 
-            <com.hbb20.CountryCodePicker
+         <!--   <com.hbb20.CountryCodePicker
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/country_code_input"
@@ -115,7 +115,7 @@
                 app:ccp_contentColor="@color/white"
                 android:layout_marginTop="10dp">
 
-            </com.hbb20.CountryCodePicker>
+            </com.hbb20.CountryCodePicker>  -->
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -155,6 +155,7 @@
             //Code for DOB
 
 
+
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:id="@+id/tv_date"
@@ -185,62 +186,64 @@
 
 
             </com.google.android.material.textfield.TextInputLayout>
+            <!--
+                       //Gender section
 
-            //Gender section
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                app:helperText="Select Gender"
-                android:layout_height="match_parent"
-                android:fontFamily="sans-serif"
-                android:textColorHint="@color/white"
-                android:layout_marginTop="5dp"
-                android:textColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:helperTextTextColor="@color/white">
-
-
-            </com.google.android.material.textfield.TextInputLayout>
+                       <com.google.android.material.textfield.TextInputLayout
+                           android:layout_width="match_parent"
+                           app:helperText="Select Gender"
+                           android:layout_height="match_parent"
+                           android:fontFamily="sans-serif"
+                           android:textColorHint="@color/white"
+                           android:layout_marginTop="5dp"
+                           android:textColor="@color/white"
+                           app:hintTextColor="@color/white"
+                           app:helperTextTextColor="@color/white">
 
 
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp">
+                       </com.google.android.material.textfield.TextInputLayout>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/gender_male_input"
-                    android:text="MALE"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white"
-                    android:textColorLink="@color/white"
-                    android:textColorHint="@color/white"/>
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/gender_female_input"
-                    android:text="FEMALE"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white"
-                    android:textColorLink="@color/white"
-                    android:textColorHint="@color/white"/>
+                       <RadioGroup
+                           android:layout_width="wrap_content"
+                           android:layout_height="match_parent"
+                           android:orientation="horizontal"
+                           android:layout_gravity="center"
+                           android:layout_marginTop="10dp">
 
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:id="@+id/gender_others_input"
-                    android:text="OTHERS"
-                    android:textColor="@color/white"
-                    android:textColorHighlight="@color/white"
-                    android:textColorLink="@color/white"
-                    android:textColorHint="@color/white"/>
+                           <RadioButton
+                               android:layout_width="wrap_content"
+                               android:layout_height="match_parent"
+                               android:id="@+id/gender_male_input"
+                               android:text="MALE"
+                               android:textColor="@color/white"
+                               android:textColorHighlight="@color/white"
+                               android:textColorLink="@color/white"
+                               android:textColorHint="@color/white"/>
 
-            </RadioGroup>
+                           <RadioButton
+                               android:layout_width="wrap_content"
+                               android:layout_height="match_parent"
+                               android:id="@+id/gender_female_input"
+                               android:text="FEMALE"
+                               android:textColor="@color/white"
+                               android:textColorHighlight="@color/white"
+                               android:textColorLink="@color/white"
+                               android:textColorHint="@color/white"/>
+
+                           <RadioButton
+                               android:layout_width="wrap_content"
+                               android:layout_height="match_parent"
+                               android:id="@+id/gender_others_input"
+                               android:text="OTHERS"
+                               android:textColor="@color/white"
+                               android:textColorHighlight="@color/white"
+                               android:textColorLink="@color/white"
+                               android:textColorHint="@color/white"/>
+
+                       </RadioGroup>
+
+                       -->
 
 
 
@@ -274,6 +277,8 @@
             </com.google.android.material.textfield.TextInputLayout>
 
                 //confirn Password
+
+            <!--
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
@@ -297,7 +302,7 @@
 
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout> -->
 
 
         </LinearLayout>
