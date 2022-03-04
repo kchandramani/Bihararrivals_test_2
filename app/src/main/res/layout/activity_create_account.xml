@@ -336,12 +336,14 @@
             android:text="DONE"
             android:layout_margin="5dp"
             android:elevation="5dp"
+            android:layout_gravity="center"
             android:background="@color/black"
             android:textColor="@color/white"
             android:layout_marginTop="20dp"/>
 
 
         <Button
+            android:onClick="loginButtonClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/go_back_login"
@@ -350,7 +352,6 @@
             android:layout_margin="5dp"
             android:elevation="5dp"
             android:background="#00000000"
-
             android:textColor="@color/white"
             android:layout_marginTop="30dp"/>
 
