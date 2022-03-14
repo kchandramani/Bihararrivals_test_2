@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,7 +23,8 @@ public class create_account extends AppCompatActivity {
 
    // private Button go_back_login;
     TextInputEditText etDate;
-    TextInputLayout tvDate, name_var, email_var, number_var, password_var, dob_var;
+    TextInputLayout tvDate, name_db, email_db, number_db, password_db;
+    Button regButton;
     DatePickerDialog.OnDateSetListener setListener;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
@@ -35,6 +35,7 @@ public class create_account extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
+
         tvDate = findViewById(R.id.tv_date);
         etDate = findViewById(R.id.et_date);
         //code for going back to login page from registration page
@@ -42,12 +43,13 @@ public class create_account extends AppCompatActivity {
 
         //variables for taking data from user and sending to database
 
-        name_var = findViewById(R.id.name_input);
-        email_var = findViewById(R.id.email_input);
-        dob_var = findViewById(R.id.tv_date);
+        name_db = findViewById(R.id.name_input);
+        email_db = findViewById(R.id.create_email_input);
+       // dob_db = findViewById(R.id.tv_date);
         // ccode_var=findViewById(R.id.country_code_input);
-        number_var = findViewById(R.id.number_input);
-        password_var = findViewById(R.id.password_input);
+        number_db = findViewById(R.id.number_input);
+        password_db = findViewById(R.id.create_password_input);
+        regButton = findViewById(R.id.done_button_input);
         //Gender variable will be added shortly
 
 
@@ -99,7 +101,70 @@ public class create_account extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-    }
+
+        //save the data into the database
+        regButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+              /*  String name = name_var.getEditText().getText().toString();
+                String email = email_var.getEditText().getText().toString();
+                String dob = tvDate.getEditText().getText().toString();
+                String phone = number_var.getEditText().getText().toString();
+                String password = password_var.getEditText().getText().toString();*/
+
+
+
+
+
+
+
+                                        // Database connection
+
+
+                                        firebaseDatabase=FirebaseDatabase.getInstance();
+                                        reference=firebaseDatabase.getReference("datauser");
+
+                String name = name_db.getEditText().getText().toString();
+                String email = email_db.getEditText().getText().toString();
+                String phone = number_db.getEditText().getText().toString();
+                String dob = tvDate.getEditText().getText().toString();
+                String password = password_db.getEditText().getText().toString();
+
+
+
+
+                                       UserHelperClass helperClass = new UserHelperClass(name, email, phone,dob,password);
+                                        reference.child(phone).setValue(helperClass);
+                                         //reference.setValue("Test 166554");
+
+                                      //  reference.child(email_db).setValue(storingdatass);
+                                        Toast.makeText(getApplicationContext(), "Register Successfully", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), main_dashboard.class);
+                 startActivity(intent);
+                  finish();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+        });
+
+
+
+    } //on Create Method
 
 
     /*public void openLoginAG() {
@@ -113,7 +178,11 @@ public class create_account extends AppCompatActivity {
 
     }
 
-    public void registerButtonClick(View view) {
+    //private
+
+
+
+  /*  public void registerButtonClick(View view) {
 
 
         String name_r = name_var.getEditText().getText().toString();
@@ -140,7 +209,7 @@ public class create_account extends AppCompatActivity {
                             if (email_r.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")) {
 
 
-                                // Database connection
+                            /*    // Database connection
 
 
                                 firebaseDatabase = FirebaseDatabase.getInstance();
@@ -182,9 +251,9 @@ public class create_account extends AppCompatActivity {
         } else {
             name_var.setError("Please Enter Your Full Name.");
         }
-    }
+    } */
 
 
-}
+} //main header
 
 

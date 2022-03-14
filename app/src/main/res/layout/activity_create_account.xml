@@ -329,7 +329,8 @@
 
         </RelativeLayout>
         <Button
-            android:onClick="registerButtonClick"
+
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/done_button_input"
@@ -343,6 +344,7 @@
 
 
         <Button
+
             android:onClick="loginButtonClick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

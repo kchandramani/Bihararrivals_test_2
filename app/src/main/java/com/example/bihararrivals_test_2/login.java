@@ -23,35 +23,35 @@ public class login extends AppCompatActivity {
     //button type variable
     Button create_button;
     Button login_button;
-    TextInputLayout email_var,password_var;
+    TextInputLayout email_vr,password_vr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        create_button=(Button) findViewById(R.id.create_account_button_input);
+        create_button=findViewById(R.id.create_account_button_input);
         login_button=findViewById(R.id.login_button_input);
 
-        email_var=findViewById(R.id.email_input);
-        password_var=findViewById(R.id.password_input);
+        email_vr=findViewById(R.id.email_input_login);
+        password_vr=findViewById(R.id.password_input_login);
 
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email=email_var.getEditText().getText().toString();
-                String password=password_var.getEditText().getText().toString();
+                String email=email_vr.getEditText().getText().toString();
+                String password=password_vr.getEditText().getText().toString();
 
                 if(!email.isEmpty()){
-                    email_var.setError(null);
-                    email_var.setErrorEnabled(false);
+                    email_vr.setError(null);
+                    email_vr.setErrorEnabled(false);
                     if(!password.isEmpty()){
-                        password_var.setError(null);
-                        password_var.setErrorEnabled(false);
+                        password_vr.setError(null);
+                        password_vr.setErrorEnabled(false);
 
 
-                        final String email_data=email_var.getEditText().getText().toString();
-                        final String password_data=password_var.getEditText().getText().toString();
+                        final String email_data=email_vr.getEditText().getText().toString();
+                        final String password_data=password_vr.getEditText().getText().toString();
 
                         FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
                         DatabaseReference databaseReference=firebaseDatabase.getReference("datauser");
@@ -62,12 +62,12 @@ public class login extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if(snapshot.exists()) {
-                                    email_var.setError(null);
-                                    email_var.setErrorEnabled(false);
+                                    email_vr.setError(null);
+                                    email_vr.setErrorEnabled(false);
                                     String passwordcheck=snapshot.child(email_data).child("password").getValue(String.class);
                                     if(passwordcheck.equals(password_data)) {
-                                        password_var.setError(null);
-                                        password_var.setErrorEnabled(false);
+                                        password_vr.setError(null);
+                                        password_vr.setErrorEnabled(false);
                                         Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_SHORT).show();
 
                                         Intent intent=new Intent(getApplicationContext(),main_dashboard.class);
@@ -75,13 +75,13 @@ public class login extends AppCompatActivity {
                                         finish();
 
                                     }else {
-                                        password_var.setError("Wrong Password");
+                                        password_vr.setError("Wrong Password");
                                     }
 
 
 
                                 }else {
-                                    email_var.setError("User Does not Exist ");
+                                    email_vr.setError("User Does not Exist ");
                                 }
                             }
 
@@ -97,11 +97,11 @@ public class login extends AppCompatActivity {
 
 
                     } else {
-                        password_var.setError("Please enter correct Password.");
+                        password_vr.setError("Please enter correct Password.");
                     }
 
                 }else {
-                    email_var.setError("Please enter correct user name.");
+                    email_vr.setError("Please enter correct user name.");
                 }
             }
         });

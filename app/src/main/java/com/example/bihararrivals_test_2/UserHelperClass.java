@@ -1,12 +1,12 @@
 package com.example.bihararrivals_test_2;
 
-public class storingdata {
-    String name,email,dob,password,phone;
+public class UserHelperClass {
+    String name,email,dob,phone,password;
 
-    public storingdata() {
+    public UserHelperClass() {
     }
 
-    public storingdata(String name, String email, String password, String phone, String dob) {
+    public UserHelperClass(String name, String email, String phone, String dob, String password) {
         this.name = name;
         this.email = email;
         this.phone = phone;
