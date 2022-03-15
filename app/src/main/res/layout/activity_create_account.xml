@@ -39,6 +39,40 @@
             android:layout_marginTop="80dp"
             android:orientation="vertical">
 
+            //This is for userid
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/username_input"
+                android:hint="Enter Username"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeWidthFocused="2dp"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/white"
+                app:hintTextColor="@color/white"
+                app:startIconDrawable="@drawable/login_person_vector"
+                app:startIconTint="@color/white"
+                android:textColorHint="@color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:fontFamily="sans-serif"
+                    android:inputType="text"
+                    android:textColor="@color/white">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
             //This is for user_name
 
 

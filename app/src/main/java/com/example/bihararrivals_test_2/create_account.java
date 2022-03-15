@@ -23,7 +23,7 @@ public class create_account extends AppCompatActivity {
 
    // private Button go_back_login;
     TextInputEditText etDate;
-    TextInputLayout tvDate, name_db, email_db, number_db, password_db;
+    TextInputLayout tvDate, name_db, email_db, number_db, password_db,username_db;
     Button regButton;
     DatePickerDialog.OnDateSetListener setListener;
     FirebaseDatabase firebaseDatabase;
@@ -43,6 +43,7 @@ public class create_account extends AppCompatActivity {
 
         //variables for taking data from user and sending to database
 
+        username_db = findViewById(R.id.username_input);
         name_db = findViewById(R.id.name_input);
         email_db = findViewById(R.id.create_email_input);
        // dob_db = findViewById(R.id.tv_date);
@@ -107,64 +108,98 @@ public class create_account extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-              /*  String name = name_var.getEditText().getText().toString();
-                String email = email_var.getEditText().getText().toString();
-                String dob = tvDate.getEditText().getText().toString();
-                String phone = number_var.getEditText().getText().toString();
-                String password = password_var.getEditText().getText().toString();*/
 
 
 
+                String username_r = username_db.getEditText().getText().toString();
+                String name_r = name_db.getEditText().getText().toString();
+                String email_r = email_db.getEditText().getText().toString();
+                String dob_r = tvDate.getEditText().getText().toString();
+                String number_r = number_db.getEditText().getText().toString();
+                String password_r = password_db.getEditText().getText().toString();
+
+                if(!username_r.isEmpty()){
+                    username_db.setError(null);
+                    username_db.setErrorEnabled(false);
+                if (!name_r.isEmpty()) {
+                    name_db.setError(null);
+                    name_db.setErrorEnabled(false);
+                    if (!email_r.isEmpty()) {
+                        email_db.setError(null);
+                        email_db.setErrorEnabled(false);
+                        if (!number_r.isEmpty()) {
+                            number_db.setError(null);
+                            number_db.setErrorEnabled(false);
+                            if (!dob_r.isEmpty()) {
+                                tvDate.setError(null);
+                                tvDate.setErrorEnabled(false);
+                                if (!password_r.isEmpty()) {
+                                    password_db.setError(null);
+                                    password_db.setErrorEnabled(false);
+                                    if (email_r.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")) {
+                                        if (username_r.matches("^[a-z0-9_-]{5,15}$")) {
 
 
+                                            // Database connection
+
+                                            firebaseDatabase = FirebaseDatabase.getInstance();
+                                            reference = firebaseDatabase.getReference("datauser");
 
 
-                                        // Database connection
+                                            String username = username_db.getEditText().getText().toString();
+                                            String name = name_db.getEditText().getText().toString();
+                                            String email = email_db.getEditText().getText().toString();
+                                            String phone = number_db.getEditText().getText().toString();
+                                            String dob = tvDate.getEditText().getText().toString();
+                                            String password = password_db.getEditText().getText().toString();
 
 
-                                        firebaseDatabase=FirebaseDatabase.getInstance();
-                                        reference=firebaseDatabase.getReference("datauser");
-
-                String name = name_db.getEditText().getText().toString();
-                String email = email_db.getEditText().getText().toString();
-                String phone = number_db.getEditText().getText().toString();
-                String dob = tvDate.getEditText().getText().toString();
-                String password = password_db.getEditText().getText().toString();
+                                            UserHelperClass helperClass = new UserHelperClass(username, name, email, phone, dob, password);
+                                            reference.child(username).setValue(helperClass);
+                                            Toast.makeText(getApplicationContext(), "Register Successfully", Toast.LENGTH_SHORT).show();
 
 
+                                            //reference.setValue("Test 166554");
 
 
-                                       UserHelperClass helperClass = new UserHelperClass(name, email, phone,dob,password);
-                                        reference.child(phone).setValue(helperClass);
-                                         //reference.setValue("Test 166554");
-
-                                      //  reference.child(email_db).setValue(storingdatass);
-                                        Toast.makeText(getApplicationContext(), "Register Successfully", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), main_dashboard.class);
-                 startActivity(intent);
-                  finish();
+                                            Intent intent = new Intent(getApplicationContext(), main_dashboard.class);
+                                            startActivity(intent);
+                                            finish();
 
 
+                                        } else {
+                                            username_db.setError("Invalid UserName.");
+                                        }
+                                    } else {
+                                        email_db.setError("Invalid Email.");
+                                    }
+                                } else {
+                                    password_db.setError("Please enter correct the Password.");
+                                }
+                            } else {
+                                tvDate.setError("Please enter correct Date.");
+                            }
+                        } else {
+                            number_db.setError("Please enter the Number.");
+                        }
+
+                    } else {
+                        email_db.setError("Please Enter Your Email.");
+                    }
+                } else {
+                    name_db.setError("Please Enter Your Full Name.");
+                }
+            } else {
+                    username_db.setError("Please Enter Correct UserName.");
+                }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-            }
+            } //End of public void onClick(View view method
         });
 
 
 
-    } //on Create Method
+    } //End Of on Create Method
 
 
     /*public void openLoginAG() {

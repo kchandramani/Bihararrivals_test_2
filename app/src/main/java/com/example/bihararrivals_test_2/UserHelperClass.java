@@ -1,18 +1,27 @@
 package com.example.bihararrivals_test_2;
 
 public class UserHelperClass {
-    String name,email,dob,phone,password;
+    String username,name,email,dob,phone,password;
 
     public UserHelperClass() {
     }
 
-    public UserHelperClass(String name, String email, String phone, String dob, String password) {
+    public UserHelperClass(String username, String name, String email, String phone, String dob, String password) {
+        this.username=username;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.dob = dob;
         this.password = password;
 
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
