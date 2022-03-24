@@ -136,8 +136,9 @@ public class create_account extends AppCompatActivity {
                                 if (!password_r.isEmpty()) {
                                     password_db.setError(null);
                                     password_db.setErrorEnabled(false);
-                                    if (email_r.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")) {
-                                        if (username_r.matches("^[a-z0-9_-]{5,15}$")) {
+                                    if (username_r.matches("^[a-z0-9_-]{5,15}$")) {
+                                        if (email_r.matches("^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$")) {
+
 
 
                                             // Database connection
@@ -168,10 +169,11 @@ public class create_account extends AppCompatActivity {
 
 
                                         } else {
-                                            username_db.setError("Invalid UserName.");
+                                            email_db.setError("Invalid Email.");
                                         }
                                     } else {
-                                        email_db.setError("Invalid Email.");
+
+                                        username_db.setError("Invalid UserName.");
                                     }
                                 } else {
                                     password_db.setError("Please enter correct the Password.");

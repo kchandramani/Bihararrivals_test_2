@@ -70,7 +70,7 @@ public class login extends AppCompatActivity {
                                         password_vr.setErrorEnabled(false);
                                         Toast.makeText(getApplicationContext(),"Login Successfully",Toast.LENGTH_SHORT).show();
 
-                                        Intent intent=new Intent(getApplicationContext(),main_dashboard.class);
+                                        Intent intent=new Intent(getApplicationContext(),profile.class);
                                         startActivity(intent);
                                         finish();
 

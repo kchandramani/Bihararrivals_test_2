@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bihararrivals_test_2">
         <activity
+            android:name=".profile"
+            android:exported="false" />
+        <activity
             android:name=".main_dashboard"
             android:exported="false" />
         <activity
@@ -27,13 +30,12 @@
         <activity
             android:name=".login"
             android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-
         <activity
             android:name=".splash_screen"
             android:exported="true">
