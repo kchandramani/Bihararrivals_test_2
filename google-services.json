@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "646700155520",
+    "firebase_url": "https://bihararrivals-edf7f-default-rtdb.firebaseio.com",
+    "project_id": "bihararrivals-edf7f",
+    "storage_bucket": "bihararrivals-edf7f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:646700155520:android:8ad1bde84d47ed9d02dc65",
+        "android_client_info": {
+          "package_name": "com.example.bihararrivals_test_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "646700155520-eprks75utom14fkm39q9ee7n7eh4hqd0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVaHv-x-r5V2i5Q9M9nHaFvQnD5KVZl7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "646700155520-eprks75utom14fkm39q9ee7n7eh4hqd0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

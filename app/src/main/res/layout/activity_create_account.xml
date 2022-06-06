@@ -14,13 +14,7 @@
         android:orientation="vertical">
         // android:gravity="center">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:src="@drawable/back_button_arrow">
 
-        </ImageView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -151,7 +145,7 @@
 
             </com.hbb20.CountryCodePicker>  -->
 
-            <com.google.android.material.textfield.TextInputLayout
+           <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
                 android:layout_width="match_parent"
@@ -368,7 +362,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/done_button_input"
-            android:text="DONE"
+            android:text="Next"
             android:layout_margin="5dp"
             android:elevation="5dp"
             android:layout_gravity="center"

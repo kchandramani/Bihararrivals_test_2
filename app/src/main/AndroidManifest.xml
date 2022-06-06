@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bihararrivals_test_2">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
@@ -10,7 +9,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bihararrivals_test_2">
         <activity
-            android:name=".profile"
+            android:name=".for_testing_only"
+            android:exported="false" />
+        <activity
+            android:name=".payment_screen"
+            android:exported="false" />
+        <activity
+            android:name=".send_otp"
+            android:exported="false" />
+        <activity
+            android:name=".sms_verification"
+            android:exported="false" />
+        <activity
+            android:name=".booking_time"
+            android:exported="false" />
+        <activity
+            android:name=".search_guide"
             android:exported="false" />
         <activity
             android:name=".main_dashboard"
@@ -49,6 +63,10 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${AIzaSyDCVFDEaJIua44gqZX4F-YQoJj_wbbWcVc}" />
     </application>
 
 </manifest>

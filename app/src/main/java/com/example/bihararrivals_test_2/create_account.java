@@ -163,7 +163,7 @@ public class create_account extends AppCompatActivity {
                                             //reference.setValue("Test 166554");
 
 
-                                            Intent intent = new Intent(getApplicationContext(), main_dashboard.class);
+                                            Intent intent = new Intent(getApplicationContext(), send_otp.class);
                                             startActivity(intent);
                                             finish();
 
