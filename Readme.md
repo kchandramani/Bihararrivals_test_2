@@ -14,5 +14,5 @@ how to run the project-
 	6. open extracted zip file in android studio.
 	7. login with google account from top right corner.
 	8. Now click on tools->firebase and connect.
-	9. Just enjoy your Done.
+	9. Just enjoy you are Done with the setup.
 
